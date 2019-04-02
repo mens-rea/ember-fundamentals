@@ -15,9 +15,14 @@ export default Controller.extend({
     }),
     actions: {
         saveInvitation(){
-            alert('Saving of the following email address in progress: '+this.emailAddress);
-            this.set('responseMessage', 'Thank you! We\'ve just saved your email address: '+this.emailAddress);
-            this.set('emailAddress', '');
+            const email = this.emailAddress;
+
+            const newInvitation = this.store.createRecord('invitation', { email: email });
+            newInvitation.save().then(response => {
+                console.log('your email was saved!');
+                this.set('responseMessage', 'Thank you! We\'ve just saved your email address: '+this.emailAddress);
+                this.set('emailAddress', '');
+            });
         }
     }
 });
