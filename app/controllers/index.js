@@ -3,6 +3,7 @@ import Controller from '@ember/controller';
 import { match, not } from '@ember/object/computed';
 
 export default Controller.extend({
+    headerMessage: 'Still Brewing',
     isValid: match('emailAddress', /^.+@.+\..+$/),
     isDisabled: not('isValid'),
     emailAddress: '',
