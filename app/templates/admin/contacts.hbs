@@ -1,0 +1,22 @@
+{{outlet}}
+
+
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>E-mail</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |message|}}
+        <tr>
+            <td>{{message.id}}</td>
+            <td>{{message.email}}</td>
+            <td>{{message.message}}</td>
+        </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -9,10 +9,15 @@ export default Controller.extend({
     isDisabled: not('formValidated'),
     actions: {
         sendMessage(){
-            alert("your message was sent");
-            this.set('emailAddress', '');
-            this.set('emailMessage', '');
-            this.set('responseMessage', 'Your message was sent!');
+            const emailAddress = this.emailAddress;
+            const emailMessage = this.emailMessage;
+
+            const newMessage = this.store.createRecord('contact', { email: emailAddress, message: emailMessage });
+            newMessage.save().then(response => {
+                this.set('emailAddress', '');
+                this.set('emailMessage', '');
+                this.set('responseMessage', 'Your message was sent!');
+            });
         }
     }
 });
