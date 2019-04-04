@@ -7,11 +7,22 @@ export default Route.extend({
     return this.store.createRecord('library');
   },
 
+  setupController(controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', 'Create a new library');
+    controller.set('buttonLabel', 'Create');
+  },
+
+  renderTemplate() {
+    this.render('libraries/form');
+  }, 
+
   actions: {
 
     saveLibrary(newLibrary) {
       newLibrary.save().then(() => this.transitionTo('libraries'));
-    },
+    }, 
 
     willTransition() {
       // rollbackAttributes() removes the record from the store
