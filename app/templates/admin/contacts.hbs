@@ -1,13 +1,12 @@
 {{outlet}}
 
-
-
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>ID</th>
       <th>E-mail</th>
       <th>Message</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +15,7 @@
             <td>{{message.id}}</td>
             <td>{{message.email}}</td>
             <td>{{message.message}}</td>
+            <td><button class="btn btn-danger btn-xs" {{action 'deleteContact' message}}>Delete</button></td>
         </tr>
     {{/each}}
   </tbody>
