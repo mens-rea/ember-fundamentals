@@ -1,6 +1,5 @@
 // app/routes/contacts/new.js
 import Route from '@ember/routing/route';
-import { not,and,match } from '@ember/object/computed';
 
 export default Route.extend({
   model() {
