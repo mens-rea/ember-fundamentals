@@ -9,6 +9,9 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('about');
   this.route('contact');
+  this.route('contacts', function(){
+    this.route('new');
+  });
 
   this.route('admin', function() {
     this.route('invitations');

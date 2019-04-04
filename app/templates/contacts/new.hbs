@@ -1,14 +1,14 @@
 {{outlet}}
 
-<h1 class="text-center">{{headerMessage}}</h1>
+<h1 class="text-center">{{model.headerMessage}}</h1>
 <p class="text-center">
     Let us know how we can help you...
 </p>
 
 <div class="contact-form form-vertical form-group form-group-lg row">
-    {{#if responseMessage}}
+    {{#if model.responseMessage}}
         <div class="col-md-offset-3 col-md-6 col-xs-12">
-            <div class="alert alert-success">{{responseMessage}}</div>
+            <div class="alert alert-success">{{model.responseMessage}}</div>
         </div>
     {{/if}}
     
@@ -19,6 +19,6 @@
         {{textarea cols="80" rows="6" value=model.message class="form-control" placeholder="Please type your message." autofocus="autofocus"}}
     </div>
     <div class="col-md-offset-3 col-md-6 col-xs-12">
-        <button disabled={{isDisabled}} class="btn btn-primary btn-lg btn-block" {{action 'saveContact' model}}>Send Message</button>
+        <button disabled={{model.isValid}} class="btn btn-primary btn-lg btn-block" {{action 'saveContact' model}}>Send Message</button>
     </div>
 </div>
