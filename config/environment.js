@@ -57,6 +57,13 @@ module.exports = function(environment) {
     ENV.APP.autoboot = false;
   }
 
+  //config/environment.js
+  if (environment === 'production') {
+    ENV['ember-faker'] = {
+      enabled: true
+    };
+  }
+
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
