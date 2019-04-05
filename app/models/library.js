@@ -9,7 +9,7 @@ export default DS.Model.extend({
   address: DS.attr('string'),
   phone: DS.attr('string'),
 
-  books: DS.hasMany('book', { inverse: 'library', async: true }),
+  books: DS.hasMany('book', {polymorphic: true, async: true }),
 
   isValid: notEmpty('name'),
 
